@@ -1,20 +1,23 @@
 <div class="card pt-4 pe-4 ps-4">
 	<div class="card-body">
+		
 		<h6 class="title">Descripción:</h6>
 		<p class="mt-2"> {{ currentProperty?.description }} </p>
-		<a class="mb-4 show-more pointer" (click)="showMoreDetails = !showMoreDetails">
-			Mostrar más
+		
+		<a class="mb-5 show-more pointer no-select" (click)="showMoreDetails = !showMoreDetails">
+			Mostrar {{ showMoreDetails ? 'menos' : 'más' }}
 			<fa-icon [icon]="faAngleDown" class="dropdown-icon ms-1"></fa-icon>
 		</a>
 		
+		<div class="dropdown-divider mt-4"></div>
+		
 		<div *ngIf="showMoreDetails" @InAndOutFaster>
-			<div class="dropdown-divider"></div>
 				<ng-container
 					*ngTemplateOutlet="moreDetails">
 				</ng-container>
 			<div class="dropdown-divider"></div>
 		</div>
-		
+
 		<div class="d-flex align-items-center justify-content-center">
 			<a routerLink="" class="py-2 px-4 btn btn-success btn-sm active" role="button" aria-pressed="true">Ver Siguiente</a>
 		</div>
