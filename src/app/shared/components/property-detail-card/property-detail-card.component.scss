@@ -1,0 +1,16 @@
+$primary-color: #1ed55e;
+$secondary-color: #599ef2;
+
+.show-more{
+  color: $primary-color;
+  text-decoration: none;
+}
+
+.feature-icon-container {
+  margin-top: 1px;
+  width: 30px;
+}
+
+.feature-icon{
+  color: $secondary-color;
+}

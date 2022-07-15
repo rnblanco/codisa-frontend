@@ -1,1 +1,17 @@
 <app-navigation-bar [items]="items"></app-navigation-bar>
+<div class="container mt-4" *ngIf="currentProperty">
+	<app-property-image-card [currentProperty]="currentProperty" [currentImages]="currentImages"></app-property-image-card>
+	<div class="row align-items-center mt-2 me-2 ms-2">
+		<div class="col-12 col-sm-8">
+			<h6 class="title">{{ currentProperty?.title }}</h6>
+			<p> {{ currentProperty?.address }}</p>
+		</div>
+		<div class="col-6 col-sm-2 text-center">
+			Mapa
+		</div>
+		<div class="col-6 col-sm-2 text-center price">
+			{{ currentProperty?.currency }}{{ currentProperty?.price }}
+		</div>
+	</div>
+	<app-property-detail-card [currentProperty]="currentProperty"></app-property-detail-card>
+</div>

@@ -3,8 +3,6 @@ import { Subscription } from 'rxjs';
 import { AppInjector } from 'src/app/app-injector.service';
 import { CatalogService } from '../services/catalog.service';
 import { environment } from 'src/environments/environment';
-import { LocalStorageService } from 'ngx-webstorage';
-import { HttpParams } from '@angular/common/http';
 import { Params, Router } from '@angular/router';
 import packageJson from 'package.json';
 import { trigger } from '@angular/animations';
@@ -30,17 +28,15 @@ export abstract class BaseComponent implements OnInit, OnDestroy {
   env: any;
   version: any;
   router: Router;
-  catalogService: CatalogService;
-  storageService: LocalStorageService;
-  subscription: Subscription;
+  routeParams: Params;
+  
   // Requests
   loading = false;
-  httpParams: HttpParams = new HttpParams();
-  routeParams!: Params;
+  catalogService: CatalogService;
+  subscription: Subscription;
   
   protected constructor() {
     this.catalogService = AppInjector.injector.get(CatalogService);
-    this.storageService = AppInjector.injector.get(LocalStorageService);
     this.router = AppInjector.injector.get(Router);
     this.subscription = new Subscription();
     this.version = packageJson.version;

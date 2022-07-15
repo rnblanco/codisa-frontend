@@ -1,0 +1,42 @@
+<div class="card pt-4 pe-4 ps-4">
+	<div class="card-body">
+		<h6 class="title">Descripción:</h6>
+		<p class="mt-2"> {{ currentProperty?.description }} </p>
+		<a class="mb-4 show-more pointer" (click)="showMoreDetails = !showMoreDetails">
+			Mostrar más
+			<fa-icon [icon]="faAngleDown" class="dropdown-icon ms-1"></fa-icon>
+		</a>
+		
+		<div *ngIf="showMoreDetails" @InAndOutFaster>
+			<div class="dropdown-divider"></div>
+				<ng-container
+					*ngTemplateOutlet="moreDetails">
+				</ng-container>
+			<div class="dropdown-divider"></div>
+		</div>
+		
+		<div class="d-flex align-items-center justify-content-center">
+			<a routerLink="" class="py-2 px-4 btn btn-success btn-sm active" role="button" aria-pressed="true">Ver Siguiente</a>
+		</div>
+	</div>
+</div>
+
+<ng-template #moreDetails>
+	<div class="pt-4 pb-4">
+		<h6 class="title">Detalles de propiedad:</h6>
+		<div class="row mt-4" *ngIf="currentProperty?.features">
+			<div *ngFor="let detail of currentProperty.features | customKeyValuePipe" class="col-12 col-sm-6 col-md-4 d-flex">
+				<div class="feature-icon-container">
+					<fa-icon [icon]="featureIcon[detail.key]" class="feature-icon"></fa-icon>
+				</div>
+				<div class="ms-2">
+					<p class="mb-1"> {{ readableFeatures[detail.key] }}: </p>
+					<p> {{ detail.value | yesOrNoPipe }} </p>
+				</div>
+			</div>
+			<div *ngFor="let detail of details" class="col-12 col-sm-6 col-md-3">
+				{{ detail }}
+			</div>
+		</div>
+	</div>
+</ng-template>

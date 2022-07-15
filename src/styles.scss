@@ -13,3 +13,35 @@ body {
   font-family: 'Noto Sans', sans-serif;
   background: $body-background-color;
 }
+
+.title{
+  color: $secondary-color;
+  font-weight: 600;
+}
+
+.price{
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.btn-success{
+  background: $primary-color!important;
+  border-color: $primary-color!important;
+  border-radius: 30px;
+}
+
+.dropdown-item:active{
+  background-color: $primary-color;
+}
+
+.dropdown-icon {
+  color: $primary-color;
+}
+
+.dropdown-toggle::after{
+  display:none;
+}
+
+.pointer {
+  cursor:pointer;
+}

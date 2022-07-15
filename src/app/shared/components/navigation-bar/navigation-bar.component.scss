@@ -1,11 +1,5 @@
 @import 'src/styles';
 
-.btn-success{
-  background: $primary-color!important;
-  border-color: $primary-color!important;
-  border-radius: 30px;
-}
-
 .navbar{
   border-bottom: 1px solid $border-color;
   box-shadow: 0 2px 4px $shadow-primary, 0 8px 16px $shadow-secondary;
@@ -13,16 +7,3 @@
     width: 8rem;
   }
 }
-
-.dropdown-item:active{
-  background-color: $primary-color;
-}
-
-.dropdown-icon {
-  color: $primary-color;
-}
-
-.dropdown-toggle::after{
-  display:none;
-}
-
