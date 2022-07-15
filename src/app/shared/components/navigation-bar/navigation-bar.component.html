@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white p-2">
+	<!-- Lg Devices -->
+	<!-- Attention: ids are repeated because both elements will never be shown at the same time -->
+	<div class="container-fluid d-none d-lg-flex">
+		<a class="navbar-brand" href="#">
+			<img src="assets/images/logo.png" alt="logo">
+		</a>
+		
+		<div>
+			<div class="container-fluid">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				
+				<div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="items">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item dropdown" *ngFor="let item of items">
+							<a *ngIf="item?.name" class="nav-link dropdown-toggle" [routerLink]="item?.routerLink" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								{{ item.name }}
+								<fa-icon [icon]="faAngleDown" class="dropdown-icon"></fa-icon>
+							</a>
+							<ul *ngIf="item?.children" class="dropdown-menu animate__animated animate__fadeIn animate__faster" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" [routerLink]="child?.routerLink" *ngFor="let child of item.children">{{ child.name }}</a></li>
+							</ul>
+						</li>
+						<li class="ms-lg-4"><a routerLink="" class="py-2 px-4 btn btn-success btn-sm active" role="button" aria-pressed="true">Ver Siguiente</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Other Devices -->
+	<div class="container-fluid d-flex d-lg-none">
+		<a class="navbar-brand" routerLink="">
+			<img src="assets/images/logo.png" alt="logo">
+		</a>
+		
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		
+		<div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="items">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item dropdown" *ngFor="let item of items">
+					<a *ngIf="item?.name" class="nav-link dropdown-toggle" [routerLink]="item?.routerLink" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						{{ item.name }}
+					</a>
+					<ul *ngIf="item?.children" class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li><a class="dropdown-item" [routerLink]="child?.routerLink" *ngFor="let child of item.children">{{ child.name }}</a></li>
+					</ul>
+				</li>
+				<li class="ms-lg-4"><a routerLink="" class="py-2 px-4 btn btn-success btn-sm active" role="button" aria-pressed="true">Ver Siguiente</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
