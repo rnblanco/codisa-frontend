@@ -31,5 +31,9 @@
     
     <app-property-detail-card [currentProperty]="currentProperty" [showMoreDetails]="showMoreDetails" (changeProperty)="changeProperty()"></app-property-detail-card>
   </div>
+  
+  <ng-container *ngIf="!currentProperty">
+    <div class="d-flex align-items-center justify-content-center w-100" [style]="{height: '80vh'}"> Parece que no hay información disponible :(</div>
+  </ng-container>
 </ng-container>
 
