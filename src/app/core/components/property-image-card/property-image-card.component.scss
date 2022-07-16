@@ -1,0 +1,10 @@
+@import 'src/styles';
+
+.header-link {
+  &.active{
+    color: $primary-color;
+    font-weight: 600;
+    border-bottom: 5px solid $primary-color;
+  }
+}
+

@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Property, ReadableFeatures } from '../../models/property.model';
-import { FeatureIcon } from '../../constants/feature-icon';
+import { Property, ReadableFeatures } from '../../../shared/models/property.model';
+import { FeatureIcon } from '../../../shared/constants/feature-icon';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import { BaseComponent } from '../base.component';
+import { BaseComponent } from '../../../shared/components/base.component';
 
 @Component({
   selector: 'app-property-detail-card',
@@ -11,9 +11,9 @@ import { BaseComponent } from '../base.component';
 })
 export class PropertyDetailCardComponent extends BaseComponent implements OnInit {
   @Input() currentProperty: Property;
+  @Input() showMoreDetails: boolean = false;
   
   details: any [];
-  showMoreDetails: boolean = false;
   faAngleDown = faAngleDown;
   
   Object = Object;

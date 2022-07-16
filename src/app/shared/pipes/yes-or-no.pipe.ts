@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { IndexableObject } from '../models/indexable-object.model';
 
 @Pipe({
 	name: 'yesOrNoPipe',

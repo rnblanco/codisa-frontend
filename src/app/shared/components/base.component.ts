@@ -1,12 +1,13 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { AppInjector } from 'src/app/app-injector.service';
-import { CatalogService } from '../services/catalog.service';
-import { environment } from 'src/environments/environment';
-import { Params, Router } from '@angular/router';
-import packageJson from 'package.json';
-import { trigger } from '@angular/animations';
-import { definitions } from 'src/app/shared/utils/animations/animate';
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
+import { AppInjector } from "src/app/app-injector.service";
+import { CatalogService } from "../services/catalog.service";
+import { environment } from "src/environments/environment";
+import { Params, Router } from "@angular/router";
+import packageJson from "package.json";
+import { trigger } from "@angular/animations";
+import { definitions } from "src/app/shared/utils/animations/animate";
+import { RouteInformation } from "../constants/routeInformation";
 
 const { InAndOut, InAndOutFast, InAndOutFaster } = definitions;
 
@@ -29,7 +30,7 @@ export abstract class BaseComponent implements OnInit, OnDestroy {
   version: any;
   router: Router;
   routeParams: Params;
-  
+  routeInformation = RouteInformation;
   // Requests
   loading = false;
   catalogService: CatalogService;
@@ -50,6 +51,10 @@ export abstract class BaseComponent implements OnInit, OnDestroy {
   
   loadFileUrl(fileName: string) {
     window.open(`${this.env.api_url.replace('api', 'documents')}/${fileName}`, '_blank');
+  }
+  
+  missingImage(event: Event) {
+    (event.target as HTMLImageElement).src = 'assets/images/not-found-image.png';
   }
 
   ngOnDestroy(): void {

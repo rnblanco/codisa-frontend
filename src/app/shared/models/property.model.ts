@@ -23,7 +23,7 @@ export interface Location {
 }
 export interface PropertyImages {
 	propertyId: string,
-	"images": string[],
+	images: string[],
 }
 
 export interface Features {
