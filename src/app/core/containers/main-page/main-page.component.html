@@ -4,15 +4,25 @@
 	<app-property-image-card [currentProperty]="currentProperty" [currentImages]="currentImages" [view]="view"></app-property-image-card>
 	
 	<div class="row align-items-center my-4 me-2 ms-2">
-		<div class="col-12 col-sm-8">
+		<div class="col-12 col-sm-6">
 			<h6 class="title mt-4">{{ currentProperty?.title }}</h6>
 			<p> {{ currentProperty?.address }}</p>
 		</div>
-		<div class="col-6 col-sm-2 text-center">
-			Mapa
-		</div>
+		<div class="col-6 col-sm-4 text-center p-0 container-map" (click)="changeToMap()">
+      <app-g-map
+        [currentProperty]="currentProperty"
+        mapClass="map"
+        height="110px"
+        width="100%"
+      >
+      </app-g-map>
+      <div class="text-white bg-black centered no-select" [style]="{height: '110px', width: '100%'}">
+        <fa-icon [icon]="faMapMarkerAlt" [style]="{fontSize: '1.5rem'}"></fa-icon>
+        <p class="m-0">Ver en mapa</p>
+      </div>
+    </div>
 		<div class="col-6 col-sm-2 text-center price">
-			{{ currentProperty?.currency }}{{ currentProperty?.price }}
+			{{ currentProperty?.currency }}{{ currentProperty?.price | thousandsPipe}}
 		</div>
 	</div>
 	

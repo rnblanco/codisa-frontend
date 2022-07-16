@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { SharedModule } from "../shared/shared.module";
+import { GoogleMapsModule } from "@angular/google-maps";
+import { GMapComponent } from './components/g-map/g-map.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { SharedModule } from "../shared/shared.module";
     PropertyDetailCardComponent,
     PropertyImageCardComponent,
     NotFoundPageComponent,
+    GMapComponent,
   ],
   imports: [
     CoreRoutingModule,
@@ -25,6 +28,7 @@ import { SharedModule } from "../shared/shared.module";
     CommonModule,
     NgbModule,
     FontAwesomeModule,
+    GoogleMapsModule,
     SharedModule
   ]
 })

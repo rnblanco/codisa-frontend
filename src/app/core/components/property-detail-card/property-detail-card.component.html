@@ -12,7 +12,7 @@
 		<div class="dropdown-divider mt-4"></div>
 		
 		<div *ngIf="showMoreDetails" @InAndOutFaster>
-				<ng-container *ngTemplateOutlet="moreDetails"> </ng-container>
+				<ng-container *ngTemplateOutlet="moreDetails"></ng-container>
 			<div class="dropdown-divider"></div>
 		</div>
 
@@ -32,11 +32,18 @@
 				</div>
 				<div class="ms-2">
 					<p class="mb-1"> {{ readableFeatures[detail.key] }}: </p>
-					<p> {{ detail.value | yesOrNoPipe }} </p>
+					<p [ngSwitch]="getType(detail.value)">
+            <ng-container *ngSwitchCase="'boolean'">
+              {{ detail.value | yesOrNoPipe }}
+            </ng-container>
+            <ng-container *ngSwitchCase="'number'">
+              {{ detail.value | thousandsPipe }} {{detail.key === lotSize ? 'm²' : ''}}
+            </ng-container>
+            <ng-container *ngSwitchDefault>
+              {{ detail.value }}
+            </ng-container>
+          </p>
 				</div>
-			</div>
-			<div *ngFor="let detail of details" class="col-12 col-sm-6 col-md-3">
-				{{ detail }}
 			</div>
 		</div>
 	</div>

@@ -13,6 +13,7 @@ export class PropertyDetailCardComponent extends BaseComponent implements OnInit
   @Input() currentProperty: Property;
   @Input() showMoreDetails: boolean = false;
   
+  lotSize:string = 'lotSize';
   details: any [];
   faAngleDown = faAngleDown;
   

@@ -5,6 +5,7 @@ import { MenuItem } from "src/app/shared/models/menu-item.model";
 import { imageCardView, isImageCardView } from "../../../shared/models/image-card.model";
 import { NavigationEnd, Params } from "@angular/router";
 import { filter } from "rxjs";
+import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-main-page',
@@ -18,6 +19,8 @@ export class MainPageComponent extends BaseComponent implements OnInit {
   currentImages: PropertyImages;
   showMoreDetails: boolean = true;
   view: imageCardView = 'image';
+  viewMap: imageCardView = 'map';
+  faMapMarkerAlt = faMapMarkerAlt;
   
   constructor() {
     super();
@@ -46,6 +49,10 @@ export class MainPageComponent extends BaseComponent implements OnInit {
       this.router.navigate([this.routeInformation.app]);
     }
     this.view = view as imageCardView;
+  }
+  
+  changeToMap(){
+    this.router.navigate([`${this.routeInformation.app}/${this.viewMap}`]);
   }
   
   loadProperties(): void {

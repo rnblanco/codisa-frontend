@@ -9,6 +9,8 @@ import { CustomKeyValuePipe } from "./shared/pipes/custom-key-value.pipe";
 import { YesOrNoPipe } from "./shared/pipes/yes-or-no.pipe";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from "./app-routing.module";
+import { ThousandsPipe } from "./shared/pipes/thousands.pipe";
+import { GoogleMapsModule } from "@angular/google-maps";
 
 @NgModule({
   declarations: [
@@ -20,11 +22,13 @@ import { AppRoutingModule } from "./app-routing.module";
 		SharedModule,
 		NgbModule,
 		HttpClientModule,
-		BrowserAnimationsModule
+		BrowserAnimationsModule,
+		GoogleMapsModule
   ],
 	providers: [
 		CustomKeyValuePipe,
-		YesOrNoPipe
+		YesOrNoPipe,
+		ThousandsPipe
 	],
   bootstrap: [AppComponent]
 })

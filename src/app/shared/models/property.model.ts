@@ -8,7 +8,7 @@ export interface Property {
 	_id:         string,
 	title:       string,
 	address:     string,
-	location:    Location,
+	location:    PropertyLocation,
 	currency:    string,
 	price:       number,
 	description: string,
@@ -17,7 +17,7 @@ export interface Property {
 	features:    Features,
 }
 
-export interface Location {
+export interface PropertyLocation {
 	latitude:  string,
 	longitude: string,
 }
