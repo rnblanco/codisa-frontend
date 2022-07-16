@@ -23,7 +23,7 @@
 								<li><a class="dropdown-item" [routerLink]="child?.routerLink" *ngFor="let child of item.children">{{ child.name }}</a></li>
 							</ul>
 						</li>
-						<li class="ms-lg-4"><a routerLink="" class="py-2 px-4 btn btn-success btn-sm active" role="button" aria-pressed="true">Ver Siguiente</a></li>
+						<li class="ms-lg-4"><a (click)="changeProperty.emit($event)" class="py-2 px-4 btn btn-success btn-sm active" role="button" aria-pressed="true">Ver Siguiente</a></li>
 					</ul>
 				</div>
 			</div>
@@ -50,7 +50,7 @@
 						<li><a class="dropdown-item" [routerLink]="child?.routerLink" *ngFor="let child of item.children">{{ child.name }}</a></li>
 					</ul>
 				</li>
-				<li class="ms-lg-4"><a routerLink="" class="py-2 px-4 btn btn-success btn-sm active" role="button" aria-pressed="true">Ver Siguiente</a></li>
+				<li class="ms-lg-4"><a (click)="changeProperty.emit($event)" class="py-2 px-4 btn btn-success btn-sm active" role="button" aria-pressed="true">Ver Siguiente</a></li>
 			</ul>
 		</div>
 	</div>

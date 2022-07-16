@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Property, ReadableFeatures } from '../../../shared/models/property.model';
-import { FeatureIcon } from '../../../shared/constants/feature-icon';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import { BaseComponent } from '../../../shared/components/base.component';
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Property, ReadableFeatures } from "../../../shared/models/property.model";
+import { FeatureIcon } from "../../../shared/constants/feature-icon";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { BaseComponent } from "../../../shared/components/base.component";
 
 @Component({
   selector: 'app-property-detail-card',
@@ -12,6 +12,7 @@ import { BaseComponent } from '../../../shared/components/base.component';
 export class PropertyDetailCardComponent extends BaseComponent implements OnInit {
   @Input() currentProperty: Property;
   @Input() showMoreDetails: boolean = false;
+  @Output() changeProperty = new EventEmitter();
   
   lotSize:string = 'lotSize';
   details: any [];

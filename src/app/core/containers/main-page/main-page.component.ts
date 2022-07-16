@@ -21,6 +21,7 @@ export class MainPageComponent extends BaseComponent implements OnInit {
   view: imageCardView = 'image';
   viewMap: imageCardView = 'map';
   faMapMarkerAlt = faMapMarkerAlt;
+  propertyIndex: number = 0;
   
   constructor() {
     super();
@@ -51,8 +52,25 @@ export class MainPageComponent extends BaseComponent implements OnInit {
     this.view = view as imageCardView;
   }
   
-  changeToMap(){
+  changeToMap(): void {
     this.router.navigate([`${this.routeInformation.app}/${this.viewMap}`]);
+  }
+  
+  changeProperty(): void {
+    if(!this.properties){
+      return;
+    }
+    
+    if (this.properties.length - 1 <= this.propertyIndex) {
+      this.propertyIndex = 0;
+    }
+    else this.propertyIndex++;
+    this.loadProperty();
+  }
+  
+  loadProperty():void {
+    this.currentProperty = this.properties[this.propertyIndex];
+    this.loadImages(this.currentProperty._id);
   }
   
   loadProperties(): void {
@@ -61,9 +79,8 @@ export class MainPageComponent extends BaseComponent implements OnInit {
       this.catalogService.getOneByName(`properties`).subscribe({
           next: ( rawProperties: rawProperties ) => {
             this.properties = rawProperties.properties;
-            this.currentProperty = this.properties[0];
+            this.currentProperty = this.properties[this.propertyIndex];
             this.loadImages(this.currentProperty._id);
-            this.loading = false;
           },
           error: () => this.loading = false
         }
@@ -71,7 +88,7 @@ export class MainPageComponent extends BaseComponent implements OnInit {
     );
   }
   
-  loadImages(id: string) {
+  loadImages(id: string): void {
     this.loading = true;
     this.subscription.add(
       this.catalogService.getOneByName(`images/${id}`).subscribe({

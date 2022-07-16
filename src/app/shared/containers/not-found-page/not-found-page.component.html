@@ -1,14 +1,10 @@
-<div class="full-vh d-flex justify-content-center align-items-center">
-	<div *ngIf="!loading" class="d-flex d-flex-column justify-content-center align-items-center">
-		<img class="error-img" src="../../../../assets/images/ux/error-text.jpg" alt="" />
-		<h3>We are sorry :(</h3>
-		<p>Something went wrong. <br> The page you were looking for was not found.</p>
-		<!-- <p-button -->
-		<!-- 	class="p-mt-2" -->
-		<!-- 	label="Reintentar" -->
-		<!-- 	routerLink="" -->
-		<!-- 	NoDblClick -->
-		<!-- ></p-button> -->
+<app-loading *ngIf="loading"></app-loading>
+
+<div *ngIf="!loading" class="vh-100 d-flex justify-content-center align-items-center">
+	<div class="d-flex flex-column justify-content-center align-items-center">
+		<img class="w-50 mb-4" src="../../../../assets/images/ux/error-text.jpg" alt="error" />
+		<h3>Lo sentimos :(</h3>
+		<p>Algo anda mal. <br> La página que estás buscando no existe.</p>
+		<a class="mt-2 btn secondary-btn text-white" routerLink="">Reintentar</a>
 	</div>
-	<!-- TODO: Loading is missing	 -->
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { MenuItem } from '../../../shared/models/menu-item.model';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { BaseComponent } from 'src/app/shared/components/base.component';
@@ -10,6 +10,7 @@ import { BaseComponent } from 'src/app/shared/components/base.component';
 })
 export class NavigationBarComponent extends BaseComponent implements OnInit {
   @Input() items: MenuItem[];
+  @Output() changeProperty = new EventEmitter();
   faAngleDown = faAngleDown;
   
   constructor() {
